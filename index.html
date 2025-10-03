@@ -955,6 +955,106 @@
     }
 }
 /* --- End of Mobile Menu Corrections --- */
+        /* =================== START: PORTFOLIO MODAL CSS =================== */
+.portfolio-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 35, 50, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+body.modal-open .portfolio-modal {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #2d3748;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(246, 173, 85, 0.3);
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+body.modal-open .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    color: #a0aec0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.modal-close-btn:hover {
+    color: #f6ad55;
+}
+
+#modal-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    background-color: #4a5568;
+}
+
+#modal-title {
+    color: #f6ad55;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#modal-description {
+    color: #a0aec0;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+#modal-results {
+    color: #a0aec0;
+    padding-left: 20px;
+}
+#modal-results li {
+    margin-bottom: 0.5rem;
+}
+
+#modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Re-using the .tag style for the modal */
+#modal-tags .tag {
+    background: rgba(246, 173, 85, 0.2);
+    color: #f6ad55;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    border: 1px solid rgba(246, 173, 85, 0.3);
+}
+/* =================== END: PORTFOLIO MODAL CSS =================== */            
     </style>
 </head>
 <body>
@@ -1208,121 +1308,147 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio">
-            <div class="section-content">
-                <h2 class="section-title">OUR WORK</h2>
-                <p class="section-subtitle">Real results for real businesses - projects that made an impact</p>
-                
-                <div class="portfolio-grid">
-                    <div class="project-card fade-in">
-                       <div class="project-image" style="background-image: url('img/project-fitlife.jpg'); background-size: cover; background-position: center;">
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>FitLife Gym - Social Media Campaign</h3>
-                            <p>Increased Instagram followers by 350% in 3 months and boosted membership signups by 45% through targeted content strategy and influencer partnerships.</p>
-                            <div class="project-tags">
-                                <span class="tag">Social Media</span>
-                                <span class="tag">Content Creation</span>
-                                <span class="tag">Influencer Marketing</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            🍕
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Pizza Paradise - Brand Redesign</h3>
-                            <p>Complete brand overhaul including new logo, website, and packaging design. Resulted in 60% increase in online orders and improved brand recognition.</p>
-                            <div class="project-tags">
-                                <span class="tag">Branding</span>
-                                <span class="tag">Web Design</span>
-                                <span class="tag">Packaging</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            👗
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Chic Boutique - E-commerce Launch</h3>
-                            <p>Built a stunning Shopify store and executed a comprehensive launch campaign. Generated $50K in revenue in the first month with a 4.2% conversion rate.</p>
-                            <div class="project-tags">
-                                <span class="tag">E-commerce</span>
-                                <span class="tag">Facebook Ads</span>
-                                <span class="tag">Email Marketing</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            🏠
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Daksh Architects</h3>
-                            <p>Implemented SEO strategy and Google Ads campaigns that generated 200+ qualified leads per month for local real estate agency, with 25% conversion to clients.</p>
-                            <div class="project-tags">
-                                <span class="tag">SEO</span>
-                                <span class="tag">Google Ads</span>
-                                <span class="tag">Lead Generation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            ☕
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Bean There Café - Local Marketing</h3>
-                            <p>Boosted foot traffic by 80% through Instagram marketing, local SEO optimization, and strategic partnerships with local influencers and businesses.</p>
-                            <div class="project-tags">
-                                <span class="tag">Local SEO</span>
-                                <span class="tag">Instagram</span>
-                                <span class="tag">Community Building</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            💼
-                            <div class="project-overlay">
-                                <span style="color: #1a2332; font-weight: bold;">View Details</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>TechStart Inc - LinkedIn Strategy</h3>
-                            <p>Grew LinkedIn presence from 500 to 5K followers in 4 months. Secured 15 B2B partnerships through strategic content and networking campaigns.</p>
-                            <div class="project-tags">
-                                <span class="tag">LinkedIn Marketing</span>
-                                <span class="tag">B2B Strategy</span>
-                                <span class="tag">Content Marketing</span>
-                            </div>
-                        </div>
+<section id="portfolio">
+    <div class="section-content">
+        <h2 class="section-title">OUR WORK</h2>
+        <p class="section-subtitle">Real results for real businesses - projects that made an impact</p>
+
+        <div class="portfolio-grid">
+            <a href="#" class="project-card fade-in" 
+               data-title="FitLife Gym - Social Media Campaign"
+               data-image="img/project-fitlife-detail.jpg"
+               data-description="We executed a high-energy social media strategy focused on community engagement and lead generation. By leveraging influencer partnerships and targeted content, we transformed their online presence into a membership-driving machine."
+               data-results="<li>350% increase in Instagram followers in 3 months.</li><li>45% boost in new membership signups via social media.</li><li>Launched a successful local influencer collaboration program.</li>"
+               data-tags="Social Media,Content Creation,Influencer Marketing">
+                <div class="project-image" style="background-image: url('img/project-fitlife.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="project-content">
+                    <h3>FitLife Gym - Social Media Campaign</h3>
+                    <p>Increased Instagram followers by 350% and boosted membership signups by 45%.</p>
+                    <div class="project-tags">
+                        <span class="tag">Social Media</span><span class="tag">Content Creation</span><span class="tag">Influencer Marketing</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card fade-in"
+               data-title="Pizza Paradise - Brand Redesign"
+               data-image="img/project-pizza-detail.jpg"
+               data-description="The client needed a fresh identity to compete in a crowded market. We conducted a complete brand overhaul, including a new logo, modern website, and mouth-watering packaging design that captured their authentic Italian-American spirit."
+               data-results="<li>60% increase in online orders after website redesign.</li><li>Featured in 3 local food blogs, boosting brand recognition.</li><li>Designed a new, cost-effective pizza box that improved brand recall.</li>"
+               data-tags="Branding,Web Design,Packaging">
+                <div class="project-image" style="background-image: url('img/project-pizza.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Pizza Paradise - Brand Redesign</h3>
+                    <p>Complete brand overhaul resulting in a 60% increase in online orders and improved brand recognition.</p>
+                    <div class="project-tags">
+                        <span class="tag">Branding</span><span class="tag">Web Design</span><span class="tag">Packaging</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card fade-in"
+               data-title="Chic Boutique - E-commerce Launch"
+               data-image="img/project-boutique-detail.jpg"
+               data-description="We built a stunning Shopify store from the ground up and executed a multi-channel launch campaign. Our strategy included targeted Facebook Ads, an email marketing funnel, and influencer seeding to drive initial sales."
+               data-results="<li>Generated $50K in revenue in the first month of operation.</li><li>Achieved a 4.2% conversion rate, well above the industry average.</li><li>Built an email list of over 5,000 engaged subscribers.</li>"
+               data-tags="E-commerce,Facebook Ads,Email Marketing">
+                <div class="project-image" style="background-image: url('img/project-boutique.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Chic Boutique - E-commerce Launch</h3>
+                    <p>Generated $50K in revenue in the first month with a comprehensive launch campaign and a 4.2% conversion rate.</p>
+                    <div class="project-tags">
+                        <span class="tag">E-commerce</span><span class="tag">Facebook Ads</span><span class="tag">Email Marketing</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card fade-in"
+               data-title="Daksh Architects - Lead Generation"
+               data-image="img/project-architects-detail.jpg"
+               data-description="This local architectural firm wanted to increase their high-value client pipeline. We implemented a hyper-local SEO strategy and ran highly targeted Google Ads campaigns focused on commercial and luxury residential keywords."
+               data-results="<li>Generated over 200 qualified leads per month.</li><li>Achieved a 25% lead-to-client conversion rate.</li><li>Ranked on the first page of Google for 15 key local search terms.</li>"
+               data-tags="SEO,Google Ads,Lead Generation">
+                <div class="project-image" style="background-image: url('img/project-architects.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Daksh Architects</h3>
+                    <p>Generated 200+ qualified leads per month with a 25% conversion rate via SEO and Google Ads.</p>
+                    <div class="project-tags">
+                        <span class="tag">SEO</span><span class="tag">Google Ads</span><span class="tag">Lead Generation</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card fade-in"
+               data-title="Bean There Café - Local Marketing"
+               data-image="img/project-cafe-detail.jpg"
+               data-description="To combat new local competition, we launched an integrated local marketing campaign. This included optimizing their Google Business Profile, running Instagram contests, and building partnerships with neighboring businesses to drive foot traffic."
+               data-results="<li>80% increase in daily foot traffic during campaign months.</li><li>Top 3 ranking in local map searches for 'best coffee near me'.</li><li>Grew Instagram following with a highly engaged local audience.</li>"
+               data-tags="Local SEO,Instagram,Community Building">
+                <div class="project-image" style="background-image: url('img/project-cafe.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Bean There Café - Local Marketing</h3>
+                    <p>Boosted foot traffic by 80% through local SEO, Instagram marketing, and strategic partnerships.</p>
+                    <div class="project-tags">
+                        <span class="tag">Local SEO</span><span class="tag">Instagram</span><span class="tag">Community Building</span>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card fade-in"
+               data-title="TechStart Inc - LinkedIn Strategy"
+               data-image="img/project-tech-detail.jpg"
+               data-description="The goal was to establish TechStart as a thought leader in the B2B SaaS space. We developed a content strategy for LinkedIn, focusing on executive branding for the CEO and publishing insightful articles that led to high-value partnerships."
+               data-results="<li>Grew LinkedIn presence from 500 to 5,000+ followers in 4 months.</li><li>Secured 15 B2B partnership calls directly from LinkedIn content.</li><li>CEO was invited to speak at two industry webinars.</li>"
+               data-tags="LinkedIn Marketing,B2B Strategy,Content Marketing">
+                <div class="project-image" style="background-image: url('img/project-tech.jpg'); background-size: cover; background-position: center;">
+                    <div class="project-overlay">
+                        <span style="color: #1a2332; font-weight: bold;">View Details</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>TechStart Inc - LinkedIn Strategy</h3>
+                    <p>Secured 15 B2B partnerships and grew LinkedIn presence from 500 to 5K followers in 4 months.</p>
+                    <div class="project-tags">
+                        <span class="tag">LinkedIn Marketing</span><span class="tag">B2B Strategy</span><span class="tag">Content Marketing</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <div id="portfolio-modal" class="portfolio-modal">
+        <div class="modal-content">
+            <span class="modal-close-btn">&times;</span>
+            <img src="" alt="Project Detail Image" id="modal-img">
+            <h3 id="modal-title"></h3>
+            <div id="modal-tags"></div>
+            <p id="modal-description"></p>
+            <h4>Key Results:</h4>
+            <ul id="modal-results"></ul>
+        </div>
+    </div>
+</section>
 
         <!-- Testimonials Section -->
         <section id="testimonials">
@@ -1758,9 +1884,79 @@
             });
         });
         // --- End of Mobile Menu Toggle Correction ---
+        /* =================== START: PORTFOLIO MODAL SCRIPT =================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card');
+    const modal = document.getElementById('portfolio-modal');
+    const modalCloseBtn = document.querySelector('.modal-close-btn');
+
+    if (!modal) return;
+
+    // Function to open the modal
+    const openModal = (card) => {
+        // Get data from the clicked card's data attributes
+        const title = card.dataset.title;
+        const image = card.dataset.image;
+        const description = card.dataset.description;
+        const results = card.dataset.results;
+        const tags = card.dataset.tags.split(',');
+
+        // Populate the modal with the data
+        modal.querySelector('#modal-title').textContent = title;
+        modal.querySelector('#modal-img').src = image;
+        modal.querySelector('#modal-description').textContent = description;
+        modal.querySelector('#modal-results').innerHTML = results;
+
+        const tagsContainer = modal.querySelector('#modal-tags');
+        tagsContainer.innerHTML = ''; // Clear previous tags
+        tags.forEach(tagText => {
+            const tag = document.createElement('span');
+            tag.className = 'tag';
+            tag.textContent = tagText;
+            tagsContainer.appendChild(tag);
+        });
+
+        // Show the modal
+        document.body.classList.add('modal-open');
+    };
+
+    // Function to close the modal
+    const closeModal = () => {
+        document.body.classList.remove('modal-open');
+    };
+
+    // Add click event listeners to all project cards
+    projectCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent the link from navigating
+            openModal(card);
+        });
+    });
+
+    // Add click event listener to the close button
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeModal);
+    }
+
+    // Add click event listener to the modal overlay to close it
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close modal on 'Escape' key press
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.body.classList.contains('modal-open')) {
+            closeModal();
+        }
+    });
+});
+/* =================== END: PORTFOLIO MODAL SCRIPT =================== */
     </script>
 </body>
 
 </html>
+
 
 
